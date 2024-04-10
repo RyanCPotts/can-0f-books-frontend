@@ -20,19 +20,18 @@ const App = () => {
     }
   };
 
-  const handleAddBook = async (newBook) => {
+  const handleAddBook = async (bookData) => {
     try {
-      // Add the new book directly to the state instead of making another fetch request
-      setBooks(prevBooks => [...prevBooks, newBook]);
+      const response = await axios.post('http://localhost:3001/books', bookData);
+      setBooks(prevBooks => [...prevBooks, response.data]);
     } catch (error) {
       console.error('Error adding book:', error);
     }
   };
-
+  
   const handleDeleteBook = async (id) => {
     try {
       await axios.delete(`http://localhost:3001/books/${id}`);
-      // Update the state to remove the deleted book
       setBooks(prevBooks => prevBooks.filter(book => book._id !== id));
     } catch (error) {
       console.error('Error deleting book:', error);
