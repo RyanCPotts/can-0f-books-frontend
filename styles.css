@@ -1,0 +1,39 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 20px;
+  padding: 20px;
+}
+
+.add-book-form, .book-list {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.add-book-form label, .add-book-form input, .add-book-form textarea, .add-book-form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.add-book-form input, .add-book-form textarea, .add-book-form select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-book-form button {
+  background-color: #005a87;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-book-form button:hover {
+  background-color: #003d5b;
+}
