@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookList = ({ books, onDeleteBook }) => {
+const BookList = ({ books, onDeleteBook, onEditBook }) => {
   return (
     <ul>
       {books.map(book => (
@@ -9,10 +9,12 @@ const BookList = ({ books, onDeleteBook }) => {
           <p>{book.description}</p>
           <p>{book.status}</p>
           <button onClick={() => onDeleteBook(book._id)}>Delete</button>
+          <button onClick={() => onEditBook(book)}>Edit</button> 
         </li>
       ))}
     </ul>
   );
 };
+
 
 export default BookList;

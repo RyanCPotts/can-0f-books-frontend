@@ -73,7 +73,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>My Bookshelf</h1>
+      <h1>My Bookshelf 3.0</h1>
       <AddBookForm onAddBook={handleAddBook} />
       <BookList books={books} onDeleteBook={handleDeleteBook} onEditBook={handleEditBook} />
       <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>

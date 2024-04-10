@@ -1,14 +1,17 @@
+// EditBookForm.jsx
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
-const EditBookForm = ({ show, onHide, book, onUpdateBook }) => {
+const EditBookForm = ({ book, onUpdateBook, show, onHide }) => {
   const [title, setTitle] = useState(book.title);
   const [description, setDescription] = useState(book.description || '');
   const [status, setStatus] = useState(book.status);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onUpdateBook(book._id, { title, description, status });
+    // Prepare book update data
+    const updatedBook = { title, description, status };
+    await onUpdateBook(book._id, updatedBook);
     onHide(); // Close modal after update
   };
 
@@ -45,12 +48,13 @@ const EditBookForm = ({ show, onHide, book, onUpdateBook }) => {
               onChange={(e) => setStatus(e.target.value)}
               required
             >
+              <option value="">Select a status</option>
               <option value="To Read">To Read</option>
               <option value="Reading">Reading</option>
               <option value="Finished">Finished</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="secondary" type="submit">
             Save Changes
           </Button>
         </Form>
