@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddBookForm from './AddBookForm';
@@ -21,8 +22,8 @@ const App = () => {
 
   const handleAddBook = async (newBook) => {
     try {
-      const response = await axios.post('http://localhost:3001/books', newBook);
-      setBooks(prevBooks => [...prevBooks, response.data]);
+      // Add the new book directly to the state instead of making another fetch request
+      setBooks(prevBooks => [...prevBooks, newBook]);
     } catch (error) {
       console.error('Error adding book:', error);
     }
@@ -31,11 +32,12 @@ const App = () => {
   const handleDeleteBook = async (id) => {
     try {
       await axios.delete(`http://localhost:3001/books/${id}`);
+      // Update the state to remove the deleted book
       setBooks(prevBooks => prevBooks.filter(book => book._id !== id));
     } catch (error) {
       console.error('Error deleting book:', error);
     }
-  };  
+  };
 
   return (
     <div>
