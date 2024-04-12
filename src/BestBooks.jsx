@@ -1,51 +1,39 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
-import { useState } from 'react';
 
-function BestBooks(){
-
+function BestBooks() {
   const [books, setBooks] = useState([]);
-/* TODO: Make a GET request to your API to fetch all the books from the database  */
-  async function getBooks(){
-  try{
-    const response = await axios.get("http://localhost:3001/books");
-    setBooks(response.data);
-  } catch(error){
-    console.log(error);
-  }
 
-}
-useEffect(()=>{
-  getBooks();
-}, []);
+  useEffect(() => {
+    async function getBooks() {
+      try {
+        const response = await axios.get("http://localhost:3000/books");
+        setBooks(response.data);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
+    }
+    getBooks();
+  }, []);
 
-
-
-    /* TODO: render all the books in a Carousel */
-
-    return (
-      <>
-        <h2>My Essential Lifelong Learning: Formation Shelf</h2>
-
-        {books.length ? (
+  return (
+    <>
+      {books.length ? (
         <Carousel>
-          {books.map((book)=>(
-          
-          <Carousel.Item key={book._id}>
-            <h3>{book.title}</h3>
-            <p>{book.description}</p>
-            <p>{book.status}</p>
-         </Carousel.Item>
-        ))}
-         </Carousel>
-         
-        ) : (
-          <h3>No Books Found :</h3>
-        )}
-      </>
-    )
-  }
-
+          {books.map(book => (
+            <Carousel.Item key={book._id}>
+              <h3>{book.title}</h3>
+              <p>{book.description}</p>
+              <p>{book.status}</p>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        <h3>No books found.</h3>
+      )}
+    </>
+  );
+}
 
 export default BestBooks;
