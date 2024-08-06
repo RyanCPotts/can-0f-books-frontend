@@ -1,11 +1,10 @@
-// App.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddBookForm from './AddBookForm';
 import BestBooks from './BestBooks';
 import BookList from './BookList';
 import EditBookForm from './EditBookForm';
-import { Modal, Toast } from 'react-bootstrap';
+import { Modal, Toast, Container, Row, Col } from 'react-bootstrap';
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -76,11 +75,23 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Friday: My Bookshelf 4.0</h1>
-      <AddBookForm onAddBook={handleAddBook} />
-      <BestBooks />  
-      <BookList books={books} onDeleteBook={handleDeleteBook} onEditBook={handleEditBook} />
+    <Container>
+      <h1>My Bookshelf</h1>
+      <Row>
+        <Col>
+          <AddBookForm onAddBook={handleAddBook} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <BestBooks />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <BookList books={books} onDeleteBook={handleDeleteBook} onEditBook={handleEditBook} />
+        </Col>
+      </Row>
       <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
         {selectedBook && (
           <EditBookForm book={selectedBook} onUpdateBook={handleUpdateBook} />
@@ -89,7 +100,7 @@ const App = () => {
       <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
         <Toast.Body>{toastMessage}</Toast.Body>
       </Toast>
-    </div>
+    </Container>
   );
 };
 

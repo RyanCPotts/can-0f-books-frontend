@@ -8,10 +8,9 @@ const EditBookForm = ({ book, onUpdateBook, show, onHide }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Prepare book update data
     const updatedBook = { title, description, status };
     await onUpdateBook(book._id, updatedBook);
-    onHide(); // Close modal after update
+    onHide();
   };
 
   return (
@@ -47,13 +46,12 @@ const EditBookForm = ({ book, onUpdateBook, show, onHide }) => {
               onChange={(e) => setStatus(e.target.value)}
               required
             >
-              <option value="">Select a status</option>
               <option value="To Read">To Read</option>
               <option value="Reading">Reading</option>
               <option value="Finished">Finished</option>
             </Form.Control>
           </Form.Group>
-          <Button variant="secondary" type="submit">
+          <Button variant="primary" type="submit">
             Save Changes
           </Button>
         </Form>

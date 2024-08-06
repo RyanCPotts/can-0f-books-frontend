@@ -9,12 +9,11 @@ const BookList = ({ books, onDeleteBook, onEditBook }) => {
           <p>{book.description}</p>
           <p>{book.status}</p>
           <button onClick={() => onDeleteBook(book._id)}>Delete</button>
-          <button onClick={() => onEditBook(book)}>Edit</button> 
+          <button onClick={() => onEditBook(book)}>Edit</button>
         </li>
       ))}
     </ul>
   );
 };
-
 
 export default BookList;
