@@ -77,7 +77,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>My Bookshelf 3.0</h1>
+      <h1>Friday: My Bookshelf 4.0</h1>
       <AddBookForm onAddBook={handleAddBook} />
       <BestBooks />  
       <BookList books={books} onDeleteBook={handleDeleteBook} onEditBook={handleEditBook} />

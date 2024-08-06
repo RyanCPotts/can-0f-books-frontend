@@ -27,7 +27,13 @@ JavaScript, Express, Cors, Dotenv, MongoDB
 
 ## Accessibility lab 12: ![alt text](image-1.png)
 
+## Accessibility lab 13: ![alt text](image-2.png)
+
 ## Change Log
+Qilin's log PST
+4/12 9:15am debugs old files
+
+
 Qilin's log PST
 4/10 1:13pm backend: adds update features(modifies books.js)
 front end: adds EditBookForm.jsx, updates app.jsx 
