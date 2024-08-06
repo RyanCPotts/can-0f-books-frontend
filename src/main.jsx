@@ -1,19 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App';
 import About from './About';
-import Profile from './Profile';
 import Header from './Header';
+import Footer from './Footer';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
   <Router>
     <Header />
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
-      <Route path="/profile" element={<Profile />} />
     </Routes>
-  </Router>,
-  document.getElementById('root')
+    <Footer />
+  </Router>
 );

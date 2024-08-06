@@ -1,0 +1,22 @@
+/* Header Styles */
+.custom-navbar {
+  padding: 10px 20px;
+  background-color: #005a87;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff !important;
+}
+
+.custom-nav-link {
+  color: #fff !important;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.custom-nav-link:hover {
+  color: #aad4f0 !important;
+  text-decoration: none;
+}

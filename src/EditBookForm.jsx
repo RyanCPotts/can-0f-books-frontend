@@ -1,62 +1,40 @@
-import React, { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import './Forms.css'; // Import the specific CSS for forms
 
-const EditBookForm = ({ book, onUpdateBook, show, onHide }) => {
-  const [title, setTitle] = useState(book.title);
+const EditBookForm = ({ book, onUpdateBook }) => {
+  const [title, setTitle] = useState(book.title || '');
   const [description, setDescription] = useState(book.description || '');
-  const [status, setStatus] = useState(book.status);
+  const [status, setStatus] = useState(book.status || '');
 
-  const handleSubmit = async (e) => {
+  useEffect(() => {
+    setTitle(book.title || '');
+    setDescription(book.description || '');
+    setStatus(book.status || '');
+  }, [book]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedBook = { title, description, status };
-    await onUpdateBook(book._id, updatedBook);
-    onHide();
+    onUpdateBook(book._id, { title, description, status });
   };
 
   return (
-    <Modal show={show} onHide={onHide}>
-      <Modal.Header closeButton>
-        <Modal.Title>Edit Book</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="title">
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group controlId="description">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="status">
-            <Form.Label>Status</Form.Label>
-            <Form.Control
-              as="select"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-              required
-            >
-              <option value="To Read">To Read</option>
-              <option value="Reading">Reading</option>
-              <option value="Finished">Finished</option>
-            </Form.Control>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Save Changes
-          </Button>
-        </Form>
-      </Modal.Body>
-    </Modal>
+    <form onSubmit={handleSubmit} className="edit-book-form">
+      <label htmlFor="title">Title:</label>
+      <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+
+      <label htmlFor="description">Description:</label>
+      <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+
+      <label htmlFor="status">Status:</label>
+      <select id="status" value={status} onChange={(e) => setStatus(e.target.value)} required>
+        <option value="">Select Status</option>
+        <option value="To Read">To Read</option>
+        <option value="Reading">Reading</option>
+        <option value="Finished">Finished</option>
+      </select>
+
+      <button type="submit">Update Book</button>
+    </form>
   );
 };
 

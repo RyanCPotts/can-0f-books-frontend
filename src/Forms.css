@@ -1,0 +1,11 @@
+/* Form Controls */
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  border-color: #005a87;
+  box-shadow: 0 0 5px rgba(0, 90, 135, 0.2);
+}

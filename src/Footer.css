@@ -1,0 +1,21 @@
+/* Footer Styles */
+.footer {
+  background-color: #003d5b; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 20px 30px; /* Padding for spacing */
+  text-align: center; /* Center align text */
+  position: relative; /* Position relative to the content */
+  width: 100%; /* Full width */
+  bottom: 0; /* Align to the bottom of the content */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.footer p {
+  margin: 0; /* Remove default margin */
+  font-size: 18px; /* Font size for brand */
+  font-weight: bold; /* Bold text */
+}
+
+.footer p:hover {
+  color: #aad4f0; /* Hover color */
+}

@@ -25,11 +25,17 @@ Git
 ## Architecture
 JavaScript, Express, Cors, Dotenv, MongoDB
 
-## Accessibility lab 12: ![alt text](image-1.png)
-
-## Accessibility lab 13: ![alt text](image-2.png)
-
 ## Change Log
+Qilin log: 8/6/24
+Edit book button now work
+Has an About Page
+Fixed some css
+backend :http://localhost:3000/books
+
+![alt text](image-4.png)
+![alt text](image-3.png)
+![alt text](image-5.png)
+
 Qilin's log PST
 4/12 9:15am debugs old files
 
@@ -55,6 +61,10 @@ Qilin's log PST
 3:30pm ACP back end for deployment
 5:30pm ACP front end for deployment
 
+
+## Accessibility lab 12: ![alt text](image-1.png)
+
+## Accessibility lab 13: ![alt text](image-2.png)
 
 ## Estimates
 
